@@ -12,7 +12,7 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
 func main() {
-	err := tpl.ExecuteTemplate(os.Stdout,"body.gohtml","Abhinav")
+	err := tpl.ExecuteTemplate(os.Stdout, "body.gohtml", "Abhinav")
 	if err != nil {
 		log.Fatalln(err)
 	}

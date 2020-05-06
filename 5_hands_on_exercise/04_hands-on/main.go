@@ -7,13 +7,13 @@ import (
 )
 
 func main() {
-	li,err := net.Listen("tcp",":8080")
+	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
 	defer li.Close()
 
-	for{
+	for {
 		conn, err := li.Accept()
 		if err != nil {
 			log.Fatalln(err)
@@ -21,12 +21,12 @@ func main() {
 		go handle(conn)
 	}
 }
-func handle(conn net.Conn){
+func handle(conn net.Conn) {
 	defer conn.Close()
 
 	respond(conn)
 }
 
-func respond(conn net.Conn){
-	io.WriteString(conn,"I am connected")
+func respond(conn net.Conn) {
+	io.WriteString(conn, "I am connected")
 }

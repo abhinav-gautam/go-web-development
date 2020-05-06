@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	li,err := net.Listen("tcp",":8080")
+	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -26,13 +26,13 @@ func main() {
 		go handle(conn)
 	}
 }
-func handle(conn net.Conn){
-	conn.SetDeadline(time.Now().Add(10*time.Second))
+func handle(conn net.Conn) {
+	conn.SetDeadline(time.Now().Add(10 * time.Second))
 	scanner := bufio.NewScanner(conn)
-	for scanner.Scan(){
+	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
-		fmt.Fprintf(conn,"You said %s:",ln)
+		fmt.Fprintf(conn, "You said %s:", ln)
 	}
 	defer conn.Close()
 

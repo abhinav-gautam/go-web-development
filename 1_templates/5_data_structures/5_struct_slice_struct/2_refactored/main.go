@@ -13,36 +13,36 @@ func init() {
 }
 
 type graphics struct {
-	Name string
+	Name  string
 	Motto string
 }
 type cars struct {
 	Brand string
-	Name string
+	Name  string
 }
 
 func main() {
-	g1 := graphics{"Nvidia","The way its meant to be played."}
-	g2 := graphics{"EA Sports","To the game"}
-	g3 := graphics{"AMD","The Future is Fusion"}
+	g1 := graphics{"Nvidia", "The way its meant to be played."}
+	g2 := graphics{"EA Sports", "To the game"}
+	g3 := graphics{"AMD", "The Future is Fusion"}
 
-	gi := []graphics{g1,g2,g3}
+	gi := []graphics{g1, g2, g3}
 
-	c1 := cars{"Koenigsegg","Agera"}
-	c2 := cars{"Bugati","Chiron"}
-	c3 := cars{"Salen","S7"}
+	c1 := cars{"Koenigsegg", "Agera"}
+	c2 := cars{"Bugati", "Chiron"}
+	c3 := cars{"Salen", "S7"}
 
-	ci := []cars{c1,c2,c3}
+	ci := []cars{c1, c2, c3}
 
 	data := struct {
-		Cars []cars
+		Cars     []cars
 		Graphics []graphics
 	}{
-		Cars:ci,
-		Graphics:gi,
+		Cars:     ci,
+		Graphics: gi,
 	}
 
-	err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml",data)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", data)
 	if err != nil {
 		log.Fatalln(err)
 	}

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	li, err := net.Listen("tcp",":8080")
+	li, err := net.Listen("tcp", ":8080")
 
 	if err != nil {
 		log.Fatalln(err)
@@ -16,7 +16,7 @@ func main() {
 
 	defer li.Close()
 
-	for{
+	for {
 		conn, err := li.Accept()
 
 		if err != nil {
@@ -28,9 +28,9 @@ func main() {
 	}
 }
 
-func handle(conn net.Conn)  {
+func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
-	for scanner.Scan(){
+	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
 	}

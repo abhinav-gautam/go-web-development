@@ -9,12 +9,12 @@ import (
 )
 
 func main() {
-	li,err := net.Listen("tcp", ":8080")
+	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
 	defer li.Close()
-	for{
+	for {
 		conn, err := li.Accept()
 
 		if err != nil {
@@ -25,51 +25,51 @@ func main() {
 		go handle(conn)
 	}
 }
-func handle(conn net.Conn){
+func handle(conn net.Conn) {
 	defer conn.Close()
 
 	// Read Requests
 	request(conn)
 }
 
-func request(conn net.Conn){
+func request(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 	i := 0
-	for scanner.Scan(){
+	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
-		if i==0{
-			mux(conn,ln)
+		if i == 0 {
+			mux(conn, ln)
 		}
-		if ln == ""{
+		if ln == "" {
 			break
 		}
 		i++
 	}
 }
 
-func mux(conn net.Conn,ln string){
+func mux(conn net.Conn, ln string) {
 	m := strings.Fields(ln)[0]
 	u := strings.Fields(ln)[1]
 
-	if m=="GET" && u=="/" {
+	if m == "GET" && u == "/" {
 		index(conn)
 	}
-	if m=="GET" && u=="/about" {
+	if m == "GET" && u == "/about" {
 		about(conn)
 	}
-	if m=="GET" && u=="/contact" {
+	if m == "GET" && u == "/contact" {
 		contact(conn)
 	}
-	if m=="GET" && u=="/apply" {
+	if m == "GET" && u == "/apply" {
 		apply(conn)
 	}
-	if m=="POST" && u=="/apply" {
+	if m == "POST" && u == "/apply" {
 		apply_post(conn)
 	}
 }
 
-func index(conn net.Conn){
+func index(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>INDEX</strong><br>
 	<a href="/">index</a><br>
@@ -83,7 +83,7 @@ func index(conn net.Conn){
 	fmt.Fprint(conn, "\r\n")
 	fmt.Fprint(conn, body)
 }
-func about(conn net.Conn){
+func about(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>ABOUT</strong><br>
 	<a href="/">index</a><br>
@@ -97,7 +97,7 @@ func about(conn net.Conn){
 	fmt.Fprint(conn, "\r\n")
 	fmt.Fprint(conn, body)
 }
-func contact(conn net.Conn){
+func contact(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>CONTACT</strong><br>
 	<a href="/">index</a><br>
@@ -111,7 +111,7 @@ func contact(conn net.Conn){
 	fmt.Fprint(conn, "\r\n")
 	fmt.Fprint(conn, body)
 }
-func apply(conn net.Conn){
+func apply(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>APPLY</strong><br>
 	<a href="/">index</a><br>
@@ -128,7 +128,7 @@ func apply(conn net.Conn){
 	fmt.Fprint(conn, "\r\n")
 	fmt.Fprint(conn, body)
 }
-func apply_post(conn net.Conn){
+func apply_post(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>APPLY PROCESSING</strong><br>
 	<a href="/">index</a><br>

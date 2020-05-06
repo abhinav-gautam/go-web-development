@@ -1,0 +1,9 @@
+{{template "header"}}
+    {{template "form"}}
+    {{if .FName}}
+        Username: {{.Username}}<br>
+        First Name: {{.FName}}<br>
+        Last Name: {{.LName}}<br>
+    {{end}}
+    <a href="/display">Go to display</a>
+{{template "footer"}}

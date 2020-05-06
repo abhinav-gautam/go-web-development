@@ -1,8 +1,8 @@
 package main
 
 import (
-"io"
-"net/http"
+	"io"
+	"net/http"
 )
 
 type hotdog int
@@ -20,5 +20,3 @@ func main() {
 	var d hotdog
 	http.ListenAndServe(":8080", d)
 }
-
-

@@ -19,4 +19,3 @@ func dog(w http.ResponseWriter, req *http.Request) {
 	<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg">
 	`)
 }
-

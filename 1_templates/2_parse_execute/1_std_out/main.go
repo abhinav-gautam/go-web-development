@@ -11,9 +11,10 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.Execute(os.Stdout,nil)
+	err = tpl.Execute(os.Stdout, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
+
 // Do not use the above code in production

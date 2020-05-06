@@ -15,9 +15,9 @@ func main() {
 	scores := struct {
 		Score1 int
 		Score2 int
-	}{3,5}
+	}{3, 5}
 
-	err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml",scores)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", scores)
 	if err != nil {
 		log.Fatalln(err)
 	}

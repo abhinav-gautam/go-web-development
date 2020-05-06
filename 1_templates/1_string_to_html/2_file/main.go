@@ -22,12 +22,12 @@ func main() {
 	</html>
 	`
 
-	nf,err := os.Create("index.html")
+	nf, err := os.Create("index.html")
 	if err != nil {
-		log.Fatal("error creating file",err)
+		log.Fatal("error creating file", err)
 	}
 	defer nf.Close()
 
-	io.Copy(nf,strings.NewReader(str))
+	io.Copy(nf, strings.NewReader(str))
 
 }

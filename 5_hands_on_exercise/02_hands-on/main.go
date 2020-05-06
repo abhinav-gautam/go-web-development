@@ -7,29 +7,28 @@ import (
 	"net/http"
 )
 
-func index(w http.ResponseWriter,req *http.Request){
-	fmt.Fprint(w,"Index")
+func index(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprint(w, "Index")
 }
-func dog(w http.ResponseWriter,req *http.Request){
-	fmt.Fprint(w,"Dog")
+func dog(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprint(w, "Dog")
 }
-func me(w http.ResponseWriter,r *http.Request){
-	tpl,err := template.ParseFiles("tpl.gohtml")
+func me(w http.ResponseWriter, r *http.Request) {
+	tpl, err := template.ParseFiles("tpl.gohtml")
 
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	err = tpl.Execute(w,"Abhinav")
+	err = tpl.Execute(w, "Abhinav")
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 func main() {
-	http.HandleFunc("/",index)
-	http.HandleFunc("/dog/",dog)
-	http.HandleFunc("/me/",me)
+	http.HandleFunc("/", index)
+	http.HandleFunc("/dog/", dog)
+	http.HandleFunc("/me/", me)
 
-	http.ListenAndServe(":8080",nil)
+	http.ListenAndServe(":8080", nil)
 }
-

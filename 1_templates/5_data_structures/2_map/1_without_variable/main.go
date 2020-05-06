@@ -13,13 +13,13 @@ func init() {
 }
 func main() {
 	cars := map[string]string{
-		"Koenigsegg":"Agera",
-		"Bugati":"Chiron",
-		"Lamborgini":"Elemento",
-		"Salen":"S7",
+		"Koenigsegg": "Agera",
+		"Bugati":     "Chiron",
+		"Lamborgini": "Elemento",
+		"Salen":      "S7",
 	}
 
-	err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml",cars)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", cars)
 	if err != nil {
 		log.Fatalln(err)
 	}

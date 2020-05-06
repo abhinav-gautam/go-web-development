@@ -12,9 +12,9 @@ func init() {
 	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
 }
 func main() {
-	friends := []string{"Ansh","Jayant","Manasi","Nimo"}
+	friends := []string{"Ansh", "Jayant", "Manasi", "Nimo"}
 
-	err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml",friends)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", friends)
 	if err != nil {
 		log.Fatalln(err)
 	}

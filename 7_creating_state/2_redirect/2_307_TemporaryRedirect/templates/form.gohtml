@@ -1,0 +1,12 @@
+{{define "form"}}
+    <h3>Sign In Form</h3>
+    <form action="/process" method="post">
+        <label for="name">Username: </label>
+        <input type="text" name="name" placeholder="Enter Name">
+        <br>
+        <label for="name">Password: </label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{{end}}

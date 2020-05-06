@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	li, err := net.Listen("tcp",":8080")
+	li, err := net.Listen("tcp", ":8080")
 
 	if err != nil {
 		log.Fatalln(err)
@@ -18,7 +18,7 @@ func main() {
 	defer li.Close()
 
 	for {
-		conn,err := li.Accept()
+		conn, err := li.Accept()
 
 		if err != nil {
 			log.Fatalln(err)
@@ -28,30 +28,30 @@ func main() {
 	}
 }
 
-func handle(conn net.Conn){
+func handle(conn net.Conn) {
 	defer conn.Close()
-	
+
 	// Read Request
 	request(conn)
-	
+
 	// Write Response
 	respond(conn)
 }
 
-func request(conn net.Conn)  {
+func request(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
-	i := 0 
-	for scanner.Scan(){
+	i := 0
+	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
-		if i==0 {
+		if i == 0 {
 			// Request Line
 			m := strings.Fields(ln)[0]
 			r := strings.Fields(ln)[1]
-			fmt.Println("***Method ",m)
-			fmt.Println("***Route ",r)
+			fmt.Println("***Method ", m)
+			fmt.Println("***Route ", r)
 		}
-		if ln==""{
+		if ln == "" {
 			// Header are done
 			break
 		}
@@ -59,7 +59,7 @@ func request(conn net.Conn)  {
 	}
 }
 
-func respond(conn net.Conn)  {
+func respond(conn net.Conn) {
 	body := `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title></head><body><strong>Hello World</strong></body></html>`
 
 	fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")

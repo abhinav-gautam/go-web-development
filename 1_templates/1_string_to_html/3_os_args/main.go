@@ -33,11 +33,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	_,err = io.Copy(nf,strings.NewReader(str))
+	_, err = io.Copy(nf, strings.NewReader(str))
 	if err != nil {
 		log.Fatal(err)
 	}
 }
+
 /*
 At terminal
 go run main.go Abhinav

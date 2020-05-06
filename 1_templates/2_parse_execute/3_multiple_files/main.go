@@ -11,27 +11,27 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.Execute(os.Stdout,nil)
+	err = tpl.Execute(os.Stdout, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	tpl, err = tpl.ParseFiles("two.gmao","vespa.gmao")
+	tpl, err = tpl.ParseFiles("two.gmao", "vespa.gmao")
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.ExecuteTemplate(os.Stdout,"one.gmao",nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "one.gmao", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.ExecuteTemplate(os.Stdout,"two.gmao",nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "two.gmao", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.ExecuteTemplate(os.Stdout,"vespa.gmao",nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gmao", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = tpl.Execute(os.Stdout,nil)
+	err = tpl.Execute(os.Stdout, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}

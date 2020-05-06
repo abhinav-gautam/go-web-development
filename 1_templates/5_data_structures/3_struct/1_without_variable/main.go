@@ -13,13 +13,13 @@ func init() {
 }
 
 type graphics struct {
-	Name string
+	Name  string
 	Motto string
 }
 
 func main() {
-	g1 := graphics{"Nvidia","The way its meant to be played."}
-	err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml",g1)
+	g1 := graphics{"Nvidia", "The way its meant to be played."}
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", g1)
 	if err != nil {
 		log.Fatalln(err)
 	}
