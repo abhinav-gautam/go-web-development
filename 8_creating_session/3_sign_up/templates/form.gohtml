@@ -1,0 +1,11 @@
+{{define "form"}}
+    <form action="/form_process" method="post">
+        <label for="email">Username</label><br>
+        <input type="text" placeholder="Username" name="username"><br>
+        <label for="fName">Name</label><br>
+        <input type="text" placeholder="First Name" name="name"><br>
+        <label for="lName">Password</label><br>
+        <input type="password" placeholder="Password" name="password"><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+{{end}}

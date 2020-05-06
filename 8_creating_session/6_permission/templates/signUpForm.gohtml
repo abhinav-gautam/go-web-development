@@ -1,0 +1,18 @@
+{{template "header"}}
+    <h4>Sign Up</h4>
+    <form action="/sign_up" method="post">
+        <label for="email">Username</label><br>
+        <input type="text" placeholder="Username" name="username"><br>
+        <label for="fName">Name</label><br>
+        <input type="text" placeholder="First Name" name="name"><br>
+        <label for="lName">Password</label><br>
+        <input type="password" placeholder="Password" name="password"><br>
+        <select name="role" id="">
+            <option value="admin">Admin</option>
+            <option value="subscriber">Subscriber</option>
+        </select>
+        <input type="submit" value="Submit"><br>
+    </form>
+    <a href="sign_up">Sign Up</a><br>
+    <a href="login">Login</a>
+{{template "footer"}}
