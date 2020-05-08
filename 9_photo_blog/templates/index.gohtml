@@ -1,0 +1,9 @@
+{{template "header"}}
+    <h3>Your Pictures:</h3>
+    <ul>
+        {{range .}}
+            <img src="/public/pics/{{.}}" width="400px" height="400px">
+        {{end}}
+    </ul>
+    {{template "form"}}
+{{template "footer"}}
