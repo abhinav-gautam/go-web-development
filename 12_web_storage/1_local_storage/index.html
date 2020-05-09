@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Local Storage</h3>
+</body>
+<script>
+    localStorage.setItem("key","value")
+    localStorage.setItem("favIceCream","chocolate")
+    let favIceCream = localStorage.getItem("favIceCream")
+    console.log(favIceCream)
+    localStorage.removeItem("favIceCream")
+    favIceCream = localStorage.getItem("favIceCream")
+    console.log(favIceCream)
+</script>
+</html>
