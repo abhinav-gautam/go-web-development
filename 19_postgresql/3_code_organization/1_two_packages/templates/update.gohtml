@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h4>Update book</h4>
+<form action="/books/update/process" method="post">
+    <input type="text" name="isbn" placeholder="Isbn" required autofocus value={{.Isbn}}>
+    <input type="text" name="title" placeholder="Title" required value={{.Title}}>
+    <input type="text" name="author" placeholder="Author" required value={{.Author}}>
+    <input type="text" name="price" placeholder="Price" required value={{.Price}}><br>
+    <input type="submit" value="Submit">
+</form>
+<a href="/books">Show all books</a>
+</body>
+</html>
